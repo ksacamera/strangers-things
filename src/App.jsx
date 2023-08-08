@@ -7,6 +7,7 @@ import MainContainer from "./components/MainContainer";
 
 
 const App = () => {
+  
   return (
     <>
       <div id="container">

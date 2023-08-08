@@ -23,8 +23,7 @@ const Profile = () => {
 
   return (
     <>
-      <h1>Profile</h1>
-      <h2>Welcome So&So</h2>
+      <h1>Welcome So&So</h1>
       <p>Messages to Me:</p>
       <ul>
         {messages.map(message => (

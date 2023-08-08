@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 
+const COHORT_NAME = "2306-FSA-ET-WEB-FT-SF";
+const BASE_URL = `https://strangers-things.herokuapp.com/api/${COHORT_NAME}`;
+
 const AddPost = () => {
   const [formData, setFormData] = useState({
     title: "",
@@ -19,20 +22,44 @@ const AddPost = () => {
     }));
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
-    // Perform form submission logic here
+    try {
+      const response = await fetch(`${BASE_URL}/posts`, {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGQyOTkyY2FhZjg3NTAwMTRmOTE3OTEiLCJ1c2VybmFtZSI6ImEiLCJpYXQiOjE2OTE1MjMzNzJ9.bSMqNm208WU9k1eYC0Mfh4UVUgZ75oAlLaJGq32hOj4"}`
+        },
+        body: JSON.stringify({
+          post: {
+            title: formData.title,
+            description: formData.description,
+            price: formData.price,
+            location: formData.location,
+            willDeliver: formData.willingToDeliver
+          }
+        })
+      });
 
-    // Clear form inputs after submission
-    setFormData({
-      title: "",
-      description: "",
-      price: "",
-      location: "",
-      willingToDeliver: false,
-    });
+      const result = await response.json();
+      console.log(result);
+
+    
+      setFormData({
+        title: "",
+        description: "",
+        price: "",
+        location: "",
+        willingToDeliver: false,
+      });
+
+    } catch (err) {
+      console.error(err);
+    }
   };
+    
 
   return (
     <div>
