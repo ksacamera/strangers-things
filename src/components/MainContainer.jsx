@@ -16,7 +16,7 @@ const MainContainer = () => {
         <Route path="profile" element={<Profile />} />
         <Route path="login" element={<Login />} />
         <Route path="signup" element={<SignUp />} />
-        <Route path="add" element={<AddPost />} />
+        <Route path="addpost" element={<AddPost />} />
       </Routes>
     </div>
   );

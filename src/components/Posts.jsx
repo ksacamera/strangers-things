@@ -34,7 +34,7 @@ const Posts = () => {
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
-          <Link to="/add-post">Add Post</Link>
+          <Link to="/addpost">Add Post</Link>
         </div>
       </div>
       <ul>
