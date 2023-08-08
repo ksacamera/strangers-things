@@ -5,6 +5,7 @@ import Posts from "./Posts";
 import Profile from "./Profile";
 import Login from "./Login";
 import SignUp from "./SignUp";
+import AddPost from "./AddPost";
 
 const MainContainer = () => {
   return (
@@ -15,6 +16,7 @@ const MainContainer = () => {
         <Route path="profile" element={<Profile />} />
         <Route path="login" element={<Login />} />
         <Route path="signup" element={<SignUp />} />
+        <Route path="add" element={<AddPost />} />
       </Routes>
     </div>
   );
